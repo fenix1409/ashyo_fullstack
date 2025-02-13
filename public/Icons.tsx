@@ -66,7 +66,6 @@ export const LocationIcon = () => {
 
     )
 }
-
 export const ArrowIcon: React.FC<{ classList?: string }> = ({ classList }) => {
     return (
         <svg className={`${classList} duration-300`} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +74,6 @@ export const ArrowIcon: React.FC<{ classList?: string }> = ({ classList }) => {
 
     )
 }
-
 export const SearchIcon: React.FC<{ classList: string }> = ({ classList }) => {
     return (
         <svg className={classList} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +82,6 @@ export const SearchIcon: React.FC<{ classList: string }> = ({ classList }) => {
 
     )
 }
-
 export const CompareIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +89,6 @@ export const CompareIcon = () => {
         </svg>
     )
 }
-
 export const LikeIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +97,6 @@ export const LikeIcon = () => {
 
     )
 }
-
 export const BasketCartIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +105,6 @@ export const BasketCartIcon = () => {
 
     )
 }
-
 export const ProfileIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +114,6 @@ export const ProfileIcon = () => {
 
     )
 }
-
 export const MenuIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +124,6 @@ export const MenuIcon = () => {
 
     )
 }
-
 export const CloseIcon = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
@@ -140,8 +132,6 @@ export const CloseIcon = () => {
 
     )
 }
-
-
 export const FacebookIcon = () => {
     return (
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +148,6 @@ export const FacebookIcon = () => {
 
     )
 }
-
 export const YouTubeIcon = () => {
     return (
         <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -240,8 +229,6 @@ export const PlayMarketIcon = () => {
 
     )
 }
-
-
 export const FilterIcon = () => {
     return (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

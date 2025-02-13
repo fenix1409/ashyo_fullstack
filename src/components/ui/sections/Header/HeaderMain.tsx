@@ -1,6 +1,5 @@
 "use client"
 import { Context } from '@/context/Context'
-import Image from 'next/image'
 import Link from 'next/link'
 import React, { useContext } from 'react'
 import Button from '../../Button'
@@ -14,7 +13,6 @@ const HeaderMain = () => {
       <div className='containers !pb-[25px] !pt-[64px] sm:!py-[30px]  px-[130px]'>
           <div className='flex items-center justify-between'>
               <Link className='flex items-center' href={'/'}>
-                  {/* <Image className='scale-[1.5]' style={{width:"48px", height:"48px"}} src="/logo.svg" alt="Site Logo" width={48} height={48} priority/> */}
                   <div><Logo/></div>
                   <span className='text-[39px] font-extrabold leading-[42.19px] text-[#134E9B]'>Ashyo</span>
               </Link>
