@@ -1,6 +1,11 @@
+import Brands from "@/src/components/ui/sections/Brands";
+import Hero from "@/src/components/ui/sections/Hero";
 
 export default function Home() {
   return (
-    <h1>helo</h1>
+    <>
+      <Hero />
+      <Brands />
+    </>
   );
 }

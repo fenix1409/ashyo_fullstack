@@ -8,7 +8,6 @@ import React from 'react'
 
 const HeaderCategory = () => {
     const {categories} = getCategories()
-    console.log(categories);
     
   return (
     <nav className='px-[130px] hidden lg:flex containers items-center justify-between'>
