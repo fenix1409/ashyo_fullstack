@@ -7,9 +7,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { instance } from '../hook/instance'
 import { ProductItemType } from '../types/ProductsType'
 import { BasketCartIcon, CompareIcon, LikeIcon } from '@/public/Icons'
-import { FcLike } from "react-icons/fc";
 import { IMAGE_API } from '../hook/getEnv'
 import { useRouter } from 'next/navigation'
+import { FcLike } from "react-icons/fc"
 
 const ProductItem: FC<{ item: ProductItemType }> = ({ item }) => {
     const router = useRouter()
@@ -49,7 +49,6 @@ const ProductItem: FC<{ item: ProductItemType }> = ({ item }) => {
         <div className='w-full sm:w-[273px] relative product-item duration-300'>
             <div className='bg-[#EBEFF3] relative rounded-[8px] mb-[16px] flex items-center justify-center h-[280px]'>
                 <Image onClick={() => router.push(`/products/${item.id}`)} className='product-img duration-300' style={{ width: "202px", height: "202px" }} src={`${IMAGE_API}/${item.image}`} width={202} height={202} alt='Product img' priority />
-                {/* <span className='bg-white px-[10px] py-[7px] rounded-[5px] font-semibold text-[14px] text-[#E81504] absolute top-[15px] left-[15px]'>Aksiyada</span> */}
             </div>
             <p className='text-[18px] font-normal leading-[19px] text-[#545D6A] mb-[28px]'>{item.product ? item.product.name : item.name}</p>
             <div className='flex justify-between'>
@@ -59,7 +58,7 @@ const ProductItem: FC<{ item: ProductItemType }> = ({ item }) => {
                     <Button onClick={() => handleCartClick(item)} extrClass='!w-[52px] !h-[44px] !p-0 text-white' type='button' icon={<BasketCartIcon />} iconPostion='left' />
                 </div>
             </div>
-            <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}> {item.product?.is_liked ? <FcLike size={25} /> : <LikeIcon />}  </button>
+            <button onClick={() => handleLikeClick(item.id)} className={`absolute top-[15px] right-[15px]`}> {item.product?.is_liked ? <FcLike size={25}/> : <LikeIcon/>}</button>
         </div>
     )
 }

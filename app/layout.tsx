@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/src/components/ui/sections/Header/Header";
 import { QueryProvider } from "@/src/query/QueryProvider";
 import { GlobalContext } from "@/context/Context";
+import Footer from "@/src/components/ui/sections/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <QueryProvider>
             <Header />
             {children}
+            <Footer />
           </QueryProvider>
         </GlobalContext>
       </body>
