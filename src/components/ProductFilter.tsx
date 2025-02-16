@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import React, { FC, useState } from 'react'
 import getBrands from '../service/getBrands'
 import { Slider } from "@heroui/slider";
-import { getVaration } from '../service/getVaration'
+import { getVariation } from '../service/getVariation'
 import { Skeleton } from '@heroui/skeleton'
 import Button from './ui/Button'
 import { BrandType } from '../types/BrandType'
@@ -13,7 +13,8 @@ import { ProductFilterType, VarationType } from '../types/VarationType'
 const ProductFilter: FC<ProductFilterType> = ({ setMaxPrice, setBrandId, setMinPrice }) => {
     const queryClient = useQueryClient()
     const { brands, isLoading } = getBrands()
-    const { varation, isLoading: varationLoading } = getVaration()
+    const { varation, isLoading: varationLoading } = getVariation()
+    
     const [minValue, setMinValue] = useState<number>(10)
     const [maxValue, setMaxValue] = useState<number>(200000000)
 

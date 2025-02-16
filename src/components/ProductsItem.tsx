@@ -45,14 +45,10 @@ const ProductItem: FC<{ item: ProductItemType }> = ({ item }) => {
         const data = { productId, userId }
         likeMutation.mutate(data)
     }
-    function click(){
-        router.push(`/products/${item.id}`)
-        console.log(item)
-    }
     return (
         <div className='w-full sm:w-[273px] relative product-item duration-300'>
             <div className='bg-[#EBEFF3] relative rounded-[8px] mb-[16px] flex items-center justify-center h-[280px]'>
-                <Image onClick={click} className='product-img duration-300' style={{ width: "202px", height: "202px" }} src={`${IMAGE_API}/${item.image}`} width={202} height={202} alt='Product img' priority />
+                <Image onClick={() => router.push(`/products/${item.id}`)} className='product-img duration-300' style={{ width: "202px", height: "202px" }} src={`${IMAGE_API}/${item.image}`} width={202} height={202} alt='Product img' priority />
             </div>
             <p className='text-[18px] font-normal leading-[19px] text-[#545D6A] mb-[28px]'>{item.product ? item.product.name : item.name}</p>
             <div className='flex justify-between'>

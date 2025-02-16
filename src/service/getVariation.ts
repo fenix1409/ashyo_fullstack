@@ -2,10 +2,10 @@
 import { useQuery } from "@tanstack/react-query"
 import { instance } from "../hook/instance"
 
-export const getVaration = () => {
+export const getVariation = () => {
     const { data:varation = [], isLoading } = useQuery({
-        queryKey: ['varation'],
-        queryFn: () => instance().get('/varation-option').then(res => res.data?.varationOptions)
+        queryKey: ['variation'],
+        queryFn: () => instance().get('/variation-options').then(res => res.data)
     })
     return {varation, isLoading}
 }

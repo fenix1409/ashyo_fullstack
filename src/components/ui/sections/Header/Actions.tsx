@@ -8,12 +8,14 @@ import SignUp from './Auth/SignUp'
 import { getLikes } from '@/src/service/getLikes'
 import { getCarts } from '@/src/service/getCarts'
 import { auth } from '@/src/service/auth'
+import { useRouter } from 'next/navigation'
 
 const Actions = () => {
     const { likeList } = getLikes()
     const { cartList } = getCarts()
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const router = useRouter()
     const { setToken } = useContext(Context)
     const [authStatus, setAuthStatus] = useState<"sign_in" | "sign_up">("sign_in")
     const [profileModal, setProfileModal] = useState<boolean>(false)
@@ -43,6 +45,12 @@ const Actions = () => {
     function handleActionClick(id: number) {
         if (id == 4) {
             setProfileModal(true)
+        }
+        else if(id == 2){
+            router.push('/like')
+        }
+        else if(id == 3){
+            router.push('/cart')
         }
     }
 

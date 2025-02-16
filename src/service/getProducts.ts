@@ -17,7 +17,7 @@ export const getProductsV2 = (minPrice?: number, maxPrice?: number, brandId?: nu
 
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['product_V2', minPrice, maxPrice, brandId, category_id],
-        queryFn: () => instance().get('/products', { params }).then(res => res.data)
+        queryFn: () => instance().get('/products', { params }).then(res => res.data.items)
     })
     return { products, isLoading }
 }
