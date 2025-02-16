@@ -2,6 +2,7 @@ import React from 'react'
 import HeaderTop from './HeaderTop'
 import HeaderMain from './HeaderMain'
 import HeaderCategory from './HeaderCategory'
+import CategoryNestedList from './CategoryNestedList'
 
 const Header = () => {
     return (
@@ -10,7 +11,7 @@ const Header = () => {
             <HeaderMain />
             <HeaderCategory />
             {/* <HeaderSearchMobile /> */}
-            {/* <CategoryNestedList /> */}
+            <CategoryNestedList />
         </header>
     )
 }

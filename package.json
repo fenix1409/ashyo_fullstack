@@ -13,6 +13,7 @@
     "@heroui/alert": "^2.2.10",
     "@heroui/modal": "^2.2.8",
     "@heroui/skeleton": "^2.2.6",
+    "@heroui/slider": "^2.4.8",
     "@heroui/spinner": "^2.2.7",
     "@heroui/system": "^2.4.7",
     "@heroui/theme": "^2.4.6",

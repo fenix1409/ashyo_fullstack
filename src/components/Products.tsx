@@ -14,9 +14,9 @@ import ProductItem from './ProductsItem';
 const Products:FC<ProductPageType> = ({title, API, extraClass}) => {
     const {products} = getProducts(API)
   return (
-    <div className={`mb-[48px] sm:mb-0 mt-[79px] ${extraClass} px-[130px]`}>
+    <div className={`mb-[48px] sm:mb-0 mt-[79px] ${extraClass}`}>
       <div className='containers'>
-        <h2 className='text-[32px] leading-[41.6px] font-bold mb-[50px]'>{title}</h2>
+        <h2 className='text-[32px] leading-[41.6px] font-bold mb-[50px] pl-[131px]'>{title}</h2>
       </div>
       <Swiper
           navigation={true}
