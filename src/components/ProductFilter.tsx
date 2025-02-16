@@ -14,7 +14,6 @@ const ProductFilter: FC<ProductFilterType> = ({ setMaxPrice, setBrandId, setMinP
     const queryClient = useQueryClient()
     const { brands, isLoading } = getBrands()
     const { varation, isLoading: varationLoading } = getVariation()
-    
     const [minValue, setMinValue] = useState<number>(10)
     const [maxValue, setMaxValue] = useState<number>(200000000)
 
@@ -71,17 +70,7 @@ const ProductFilter: FC<ProductFilterType> = ({ setMaxPrice, setBrandId, setMinP
                         <input type='number' value={maxValue} onChange={(e => setMaxValue(Number(e.target.value)))} className='py-[8px] px-[25px] text-center rounded-[5px] w-full' placeholder='Max naxr' />
                     </div>
                 </div>
-                <Slider
-                    onChange={handlePriceChange}
-                    aria-label='Slider'
-                    size='sm'
-                    className="max-w-md"
-                    defaultValue={[minValue, maxValue]}
-                    formatOptions={{ style: "decimal", currency: "UZS" }}
-                    maxValue={500000000}
-                    minValue={40}
-                    step={10}
-                />
+                <Slider onChange={handlePriceChange} aria-label='Slider' size='sm' className="max-w-md" defaultValue={[minValue, maxValue]} formatOptions={{ style: "decimal", currency: "UZS" }} maxValue={500000000} minValue={40} step={10} />
                 <Button onClick={handleFilterPriceBtnClick} extrClass='mt-5' title='Qidirish' type='button' />
                 <div className='mt-[26px]'>
                     <h2 className='font-bold text-[16px] leading-[20px]'>Brendi</h2>

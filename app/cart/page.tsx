@@ -4,19 +4,30 @@ import Button from '@/src/components/ui/Button';
 import { getCarts } from '@/src/service/getCarts'
 import { getUsers } from '@/src/service/getUsers';
 import { CartProductType, ProductItemType } from '@/src/types/ProductsType';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Cart = () => {
     // const { cartList } = getCarts()
-    const carts  = getUsers()    
+    const carts = getUsers()
+    const [quantities, setQuantities] = useState<{ [key: number]: number }>({})
+    const [totalPrice, setTotalPrice] = useState<number>(0)
     console.log(carts);
-    
+    const handleQuantityChange = (productId: number, quantity: number) => {
+        setQuantities(prevQuantities => ({ ...prevQuantities, [productId]: quantity }))
+    }
+    useEffect(() => {
+        const total = carts.cartList.reduce((acc: number, item: CartProductType) => {
+            const quantity = quantities[item.product.product_id] || item.quantity
+            return acc + (item.product.price * quantity)
+        }, 0)
+        setTotalPrice(total)
+    }, [quantities, carts.cartList])
     return (
         <div className='px-[130px]'>
             <h2 className='font-bold text-[22px] mb-[36px]'>Savat</h2>
             <div className='flex justify-between'>
                 <div className='w-[70%] space-y-[30px]'>
-                    {carts.cartList.map((item: CartProductType) => <CartProduct key={item.id} item={item} />)}
+                    {carts.cartList.map((item: CartProductType) => <CartProduct key={item.id} item={item} onQuantityChange={handleQuantityChange} />)}
                 </div>
                 <div className='w-[25%]'>
                     <div className='w-full bg-[#EBEFF3] p-[40px] rounded-[7px]'>
@@ -26,8 +37,8 @@ const Cart = () => {
                             <li className='text-[18px] font-semibold'>Bepul</li>
                         </ul>
                         <ul className='flex items-center mb-[39px] justify-between'>
-                            <li className='text-[12px] font-normal'>Jami summa::</li>
-                            <li className='text-[18px] font-semibold'>12 568 000 usz</li>
+                            <li className='text-[12px] font-normal'>Jami summa:</li>
+                            <li className='text-[18px] font-semibold'>{totalPrice} usz</li>
                         </ul>
                         <Button extrClass='!py-[17px] w-[90%] mx-auto' title='Hoziroq sotib olish' type='button' />
                     </div>

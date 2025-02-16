@@ -69,5 +69,6 @@ export interface ProductTypeV2 {
 export interface CartProductType{
     id:number,
     product:ProductItemType,
-    product_id:string
+    product_id:string,
+    quantity: number
 }
