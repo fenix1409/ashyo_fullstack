@@ -5,6 +5,8 @@ import Header from "@/src/components/ui/sections/Header/Header";
 import { QueryProvider } from "@/src/query/QueryProvider";
 import { GlobalContext } from "@/context/Context";
 import Footer from "@/src/components/ui/sections/Footer";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

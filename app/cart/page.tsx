@@ -11,14 +11,13 @@ const Cart = () => {
     const carts = getUsers()
     const [quantities, setQuantities] = useState<{ [key: number]: number }>({})
     const [totalPrice, setTotalPrice] = useState<number>(0)
-    console.log(carts);
     const handleQuantityChange = (productId: number, quantity: number) => {
         setQuantities(prevQuantities => ({ ...prevQuantities, [productId]: quantity }))
     }
     useEffect(() => {
         const total = carts.cartList.reduce((acc: number, item: CartProductType) => {
             const quantity = quantities[item.product.product_id] || item.quantity
-            return acc + (item.product.price * quantity)
+            return acc + (item.product.price * item.quantity)
         }, 0)
         setTotalPrice(total)
     }, [quantities, carts.cartList])

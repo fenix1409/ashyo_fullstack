@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React, { FC, useEffect, useState } from 'react'
 import getToken from '../hook/getToken'
@@ -8,37 +9,44 @@ import { IMAGE_API } from '../hook/getEnv'
 import { RemoveIcon } from '@/public/Icons'
 
 const CartProduct: FC<{ item: CartProductType, onQuantityChange: (productId: number, quantity: number) => void }> = ({ item, onQuantityChange }) => {
-    const { token, userId } = getToken()
+    const { token } = getToken()
     const queryClient = useQueryClient()
     const [basketQuantity, setBasketQuantity] = useState<ProductItemType[]>([{ ...item.product, quantity: item.quantity }])
 
-    const cartMutation = useMutation({
-        mutationFn: (data: { product_id: number, user_id: number }) => instance().post('/cart-item', data, {
-            headers: { "Authorization": `Bearer ${token}` }
-        }),
-        onSuccess: (() => {
-            queryClient.invalidateQueries({ queryKey: ['products-items'] })
+    const deleteMutation = useMutation({
+        mutationFn: (id: number) => instance().delete(`/cart-item/${id}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        }).then((res) => res.data),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['product-items'] })
             queryClient.invalidateQueries({ queryKey: ['carts_list'] })
-        })
-    })
-
-    function handleCartClick(item: ProductItemType) {
-        const newData = {
-            product_id: item.product_id,
-            user_id: userId,
-            quantity: item.quantity || 1,
-            price: item.price
+        },
+        onError: (error) => {
+            console.error("Xatolik yuz berdi:", error);
+            alert("Mahsulotni o‘chirishda xatolik yuz berdi!");
         }
-        cartMutation.mutate(newData)
+    });
+
+
+    function handleCartClick(product: CartProductType) {
+        if (!product.id) {
+            console.error("Mahsulot ID si yo‘q!");
+            return;
+        }
+        deleteMutation.mutate(product.id);
+        console.log("O‘chirilayotgan mahsulot:", product);
     }
+
 
     const handleIncrement = () => {
         setBasketQuantity(prevState =>
             prevState.map(product =>
-                product.product_id === item.product.product_id ? { ...product, quantity: (product.quantity || 0) + 1 } : product)
+                product.id === item.product.id ? { ...product, quantity: (product.quantity || 0) + 1 } : product)
         )
         item.quantity = (item.quantity || 0) + 1
         onQuantityChange(item.product.product_id, item.quantity)
+        console.log(item);
+        
     }
 
     const handleDecrement = () => {
@@ -70,7 +78,7 @@ const CartProduct: FC<{ item: CartProductType, onQuantityChange: (productId: num
             <div className='flex flex-col py-[17px]'>
                 <h2 className='text-[18px] text-[#545D6A] mb-[51px]'>{item.product.name}</h2>
                 <div className='flex items-center gap-[10px]'>
-                    <button onClick={() => handleCartClick(item.product)} className='w-[52px] h-[52px] flex items-center justify-center bg-[#EBEFF3] rounded-[7px]'>
+                    <button onClick={() => handleCartClick(item)} className='w-[52px] h-[52px] flex items-center justify-center bg-[#EBEFF3] rounded-[7px]'>
                         <RemoveIcon />
                     </button>
                 </div>
