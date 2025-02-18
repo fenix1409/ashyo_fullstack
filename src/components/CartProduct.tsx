@@ -41,13 +41,11 @@ const CartProduct: FC<{ item: CartProductType, onQuantityChange: (productId: num
     const handleIncrement = () => {
         setBasketQuantity(prevState =>
             prevState.map(product =>
-                product.id === item.product.id ? { ...product, quantity: (product.quantity || 0) + 1 } : product)
+                product.id === item.product.id ? {...product, quantity: Number(product.quantity || 0) + 1 } : product)
         )
-        item.quantity = (item.quantity || 0) + 1
+        item.quantity = (item.quantity - 0) + 1
         onQuantityChange(item.product.product_id, item.quantity)
-        console.log(item);
-        
-    }
+    }    
 
     const handleDecrement = () => {
         if ((item.quantity || 1) > 1) {
