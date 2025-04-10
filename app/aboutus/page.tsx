@@ -33,7 +33,7 @@ const AboutUs = () => {
         {
             id: 6,
             title: "To'lov usullari",
-            description: "Siz uchun qulay usulda to'lang do'konda, Cilik, Payme orqali."
+            description: "Siz uchun qulay usulda to'lang do'konda, Click, Payme orqali."
         }
     ]
     return (

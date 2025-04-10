@@ -1,13 +1,11 @@
 "use client"
 import CartProduct from '@/src/components/CartProduct';
 import Button from '@/src/components/ui/Button';
-import { getCarts } from '@/src/service/getCarts'
 import { getUsers } from '@/src/service/getUsers';
-import { CartProductType, ProductItemType } from '@/src/types/ProductsType';
+import { CartProductType } from '@/src/types/ProductsType';
 import React, { useEffect, useState } from 'react'
 
 const Cart = () => {
-    // const { cartList } = getCarts()
     const carts = getUsers()
     const [quantities, setQuantities] = useState<{ [key: number]: number }>({})
     const [totalPrice, setTotalPrice] = useState<number>(0)
@@ -16,7 +14,6 @@ const Cart = () => {
     }
     useEffect(() => {
         const total = carts.cartList.reduce((acc: number, item: CartProductType) => {
-            const quantity = quantities[item.product.product_id] || item.quantity
             return acc + (item.product.price * item.quantity)
         }, 0)
         setTotalPrice(total)

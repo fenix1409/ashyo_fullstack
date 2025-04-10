@@ -48,7 +48,7 @@ const Contact = () => {
                 <div className="w-[771px]">
                     <h1 className='text-[32px] leading-[44px] font-bold text-[#0A1729] mb-[16px]'>Qayta aloqa</h1>
                     <p className='text-[16px] leading-[20px] text-[#545D6A] mb-[35px]'>
-                        Bizning ishimiz haqidagi fikir mulohazalaringiz bilan bo’lishing yoki izohlar maydonida o’zingizni qiziqtirgan savolingizni yo’llang
+                        Bizning ishimiz haqidagi fikir mulohazalaringiz bilan bo'lishing yoki izohlar maydonida o'zingizni qiziqtirgan savolingizni yo'llang
                     </p>
                     <form onSubmit={handleSubmitForm} className='w-[690px] flex items-center flex-wrap justify-between'>
                         <label className='flex flex-col mb-[31px]'>
@@ -68,7 +68,7 @@ const Contact = () => {
                             <Input name='email' value={formData.email} onChange={handleChange} placeholder='' type='email' extraClass='w-[330px]' />
                         </label>
                         <label className='flex flex-col mt-[30px]'>
-                            <strong className='text-[12px] leading-[15px] mb-[4px] text-[#848B93]'>O’zingizni fikrlangizni qoldiring</strong>
+                            <strong className='text-[12px] leading-[15px] mb-[4px] text-[#848B93]'>O'zingizni fikrlangizni qoldiring</strong>
                             <textarea name='message' value={formData.message} onChange={handleChange} className='!w-[690px] h-[130px] focus:shadow focus:shadow-[#134E9B] duration-300 bg-[#EBEFF3] outline-none py-[17px] px-[26px] rounded-[6px] text-[14px] leading-[#EBEFF3]'></textarea>
                         </label>
                         <Button title={isSubmitting ? "Yuborilmoqda..." : "Xabar yuborish"} type="submit" extrClass="w-full mt-[30px]" isLoading={isSubmitting} />
